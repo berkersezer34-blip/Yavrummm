@@ -609,3 +609,333 @@ Ve her şeyi değiştirir.
 </div>
 
 </section>
+<!-- ========================= -->
+<!-- ROMANTİK MEKTUP -->
+<!-- ========================= -->
+
+<section class="letter">
+
+<h2>💌 Sana Bir Mektup</h2>
+
+<p>
+
+Bazen kelimeler hissettiklerimi anlatmaya yetmiyor.
+Ama yine de denemek istedim...
+
+</p>
+
+<br>
+
+<p>
+
+Hayatıma girdiğin günden beri bazı şeyler daha güzel görünmeye başladı.
+Gülüşün, sesin ve varlığın...
+Bunların hepsi benim için çok kıymetli.
+
+</p>
+
+<br>
+
+<p>
+
+Belki her gün mükemmel geçmiyor.
+Belki bazen uzak kalıyoruz.
+Belki bazen susuyoruz.
+
+Ama ne olursa olsun seni düşünmeden geçen tek bir gün bile olmuyor.
+
+</p>
+
+<br>
+
+<p>
+
+Bu site sadece küçük bir sürpriz.
+
+Çünkü sen sıradan biri değilsin.
+
+</p>
+
+<br>
+
+<p style="text-align:right;font-family:Great Vibes;font-size:42px">
+
+❤️ Sonsuza kadar...
+
+</p>
+
+</section>
+
+<!-- ========================= -->
+<!-- SÜRPRİZ KUTUSU -->
+<!-- ========================= -->
+
+<section class="surprise">
+
+<h1
+style="
+font-family:Great Vibes;
+font-size:65px;
+margin-bottom:40px;
+color:#ffc2df;
+">
+
+Bir Sürpriz 🎁
+
+</h1>
+
+<img
+
+class="gift"
+
+onclick="openGift()"
+
+src="https://cdn-icons-png.flaticon.com/512/3468/3468379.png"
+
+>
+
+<div
+
+class="message"
+
+id="giftMessage"
+
+>
+
+❤️ Seni tanıdığım gün hayatımın en güzel günüydü. ❤️
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SON BİR ŞEY -->
+<!-- ========================= -->
+
+<section class="final" id="final">
+
+<h1>
+
+Son Bir Şey...
+
+</h1>
+
+<p id="typingText">
+
+</p>
+
+</section>
+
+</div>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script>
+  const PASSWORD = "16.07.2026";
+
+function login(){
+
+const pass=document.getElementById("password").value;
+
+if(pass===PASSWORD){
+
+document.getElementById("login").style.display="none";
+document.getElementById("content").classList.remove("hidden");
+
+startCounter();
+createStars();
+shootingStars();
+petalRain();
+
+}else{
+
+document.getElementById("error").innerHTML="❌ Şifre yanlış.";
+
+}
+
+}
+
+/* Sayaç */
+
+function startCounter(){
+
+const target=new Date("2026-07-16T00:00:00");
+
+setInterval(()=>{
+
+const now=new Date();
+
+let diff=now-target;
+
+if(diff<0) diff=0;
+
+const day=Math.floor(diff/86400000);
+
+const hour=Math.floor(diff%86400000/3600000);
+
+const min=Math.floor(diff%3600000/60000);
+
+const sec=Math.floor(diff%60000/1000);
+
+document.getElementById("counter").innerHTML=
+`${day} Gün ${hour} Saat ${min} Dakika ${sec} Saniye`;
+
+},1000);
+
+}
+
+/* Yıldızlar */
+
+function createStars(){
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<180;i++){
+
+const s=document.createElement("div");
+
+s.className="star";
+
+const size=Math.random()*3+1;
+
+s.style.width=size+"px";
+s.style.height=size+"px";
+
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+
+s.style.animationDelay=Math.random()*5+"s";
+
+stars.appendChild(s);
+
+}
+
+}
+
+/* Kayan yıldız */
+
+function shootingStars(){
+
+setInterval(()=>{
+
+const s=document.createElement("div");
+
+s.className="shooting";
+
+s.style.left="-100px";
+s.style.top=Math.random()*250+"px";
+
+document.body.appendChild(s);
+
+setTimeout(()=>{
+
+s.remove();
+
+},6000);
+
+},2500);
+
+}
+
+/* Gül yaprakları */
+
+function petalRain(){
+
+setInterval(()=>{
+
+const p=document.createElement("div");
+
+p.className="petal";
+
+p.innerHTML="🌹";
+
+p.style.left=Math.random()*100+"%";
+
+p.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.getElementById("petals").appendChild(p);
+
+setTimeout(()=>{
+
+p.remove();
+
+},10000);
+
+},250);
+
+}
+
+/* Tıklayınca kalp */
+
+document.addEventListener("click",function(e){
+
+const heart=document.createElement("div");
+
+heart.className="clickHeart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=e.clientX+"px";
+
+heart.style.top=e.clientY+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},1000);
+
+});
+
+/* Hediye */
+
+function openGift(){
+
+const msg=document.getElementById("giftMessage");
+
+msg.style.display="block";
+
+document.querySelector(".gift").style.transform="scale(1.15) rotate(10deg)";
+
+}
+  /* ========================= */
+/* SON BİR ŞEY ANİMASYONU */
+/* ========================= */
+
+const finalText =
+"Belki bu sadece küçük bir internet sitesi... Ama içindeki her satır seni düşünerek yazıldı. ❤️ Sen benim için her zaman çok özelsin. Seni her şeyden çok seviyorum. 🌹";
+
+let index = 0;
+
+function typeWriter() {
+
+    const area = document.getElementById("typingText");
+
+    if (!area) return;
+
+    if (index < finalText.length) {
+
+        area.innerHTML += finalText.charAt(index);
+
+        index++;
+
+        setTimeout(typeWriter, 60);
+
+    }
+
+}
+
+window.addEventListener("load", () => {
+
+    setTimeout(typeWriter, 2500);
+
+});
+
+</script>
+
+</body>
+</html>
